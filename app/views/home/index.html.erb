@@ -1,0 +1,15 @@
+<h1>Home#index</h1>
+
+<%  @products.each do |product| %>
+   <h5>
+     <%= product.title %>
+  </h5>
+     <%= form_for(@order_item) do |f| %>
+          <%= f.hidden_field :product_id, value: product.id %>
+          <h5><%= product.price %></h5>
+          <br>
+          <%= f.text_field :quantity, value: 1, min: 1 %>
+          <br>
+          <%= f.submit "Add To Cart"%>
+     <% end %>
+<% end %>

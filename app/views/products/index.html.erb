@@ -1,0 +1,27 @@
+<h1>Items</h1>
+  <table class="table table-hover table-bordered table-responsive" style="width:100%">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody style="width:100%">
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.title %></td>
+          <td><%= product.price %></td>
+
+          <td><%= link_to 'Show', product %></td>
+          <td><%= link_to 'Edit', edit_product_path(product) %></td>
+          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Add New Item', new_product_path %>
